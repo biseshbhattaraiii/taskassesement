@@ -5,10 +5,10 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=, initial-scale=1.0")
         link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous")
-        title KYC Form
+        title= title
     body 
         div(class="container")
-            h1 KYC FORM 
+            h1= title
             if success
                 div(class="alert alert-success alert-dismissible fade show" role="alert") #{success}
                     button(type="button" class="close" data-dismiss="alert" aria-label="Close")
@@ -21,13 +21,13 @@ html(lang="en")
             form(action="/submit" method="POST")
                 div(class="form-group")
                     label(for="username" class="form-label") Name
-                    input(type="text" class="form-control" name="name" id="name")
+                    input(class="form-control" name="name" )
                 div(class="form-group")
                     label(for="email" class="form-label") Email
-                    input(type="text" class="form-control" name="email" id="email")
+                    input(class="form-control" name="email")
                 div(class="form-group")
                     label(for="phnumber" class="form-label") PhoneNumber
-                    input(class="form-control" name="phnumber" id="phnumber")
+                    input(class="form-control" name="phnumber")
                 div(class="form-group")
                     label(for="gender" class="form-label") Gender 
                        

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express(); 
 const bodyParser = require('body-parser'); 
 let pug = require('pug');
-const { body , check , validationResult } = require('express-validator');
+const { check , validationResult } = require('express-validator');
 
 
 const port = 5000 ; 
@@ -14,15 +14,18 @@ app.get('/', (req, res)=>{
 })
 
 app.post('/submit' , [
+   
+    check('name', 'Name is required')
+    .not().isEmpty(),
     check('name', 'Name must be atleast 5 characters long')
-    .exists()
     .isLength({min:5}), 
+    check('email', 'Email is required')
+    .not().isEmpty(),
     check('email', 'Email must be valid')
-    .exists()
-    .isEmail()
-    .normalizeEmail(), 
+    .isEmail(), 
+    check('phnumber', 'Phone number is required')
+    .not().isEmpty(),
     check('phnumber', 'Phone number must be number')
-    .exists()
     .isNumeric(), 
     check('gender', "Gender must be selected")
     .exists(),
@@ -32,8 +35,9 @@ app.post('/submit' , [
 ]
          ,(req , res) => {
              const all_errors = validationResult(req)
-             if(!all_errors.isEmpty()) {
+             if(all_errors) {
                  const errors = all_errors.array()
+                 console.log(errors)
                  res.render('index', {
                      errors
                  })
@@ -46,6 +50,7 @@ app.post('/submit' , [
 
     
 })
+
 
 app.listen(port , () => console.log(`App listening on port ${port}`))
 
