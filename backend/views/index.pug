@@ -30,28 +30,30 @@ html(lang="en")
                     input(class="form-control" name="phnumber" id="phnumber")
                 div(class="form-group")
                     label(for="gender" class="form-label") Gender 
-                        br
+                       
                         br
                         label(for="male" class="form-label") Male 
-                            input(class="form-control" value="Male" name="gender" type="radio")
-                            label(for="male" class="form-label") Female 
-                            input(class="form-control" value="Female" name="gender" type="radio") 
-                            label(for="male" class="form-label") Others
-                            input(class="form-control" value="Others" name="gender" type="radio") 
+                            input( value="Male" name="gender" type="radio")
+                        label(for="male" class="form-label" style="margin-left:5px") Female 
+                            input(value="Female" name="gender" type="radio") 
+                        label(for="male" class="form-label" style="margin-left:5px") Others
+                            input(value="Others" name="gender" style="margin-left:5px" type="radio") 
                 div(class="form-group")
                     label(for="hobbies" class="form-label") Choose your hobbies
                         br
-                        br
-                        label(for="reading" class="form-label") Reading books 
-                        input(class="form-control" value="reading" name="hobbies" type="checkbox")
-                        label(for="dancing" class="form-label") Dancing  
-                        input(class="form-control" value="dancing" name="hobbies" type="checkbox") 
-                        label(for="music" class="form-label") Listening to music
-                        input(class="form-control" value="music" name="hobbies" type="checkbox")
-                        label(for="travel" class="form-label") Travel/Riding
-                        input(class="form-control" value="travel" name="hobbies" type="checkbox")
-                        label(for="nohobby" class="form-label") I have no hobbies :(
-                        input(class="form-control" value="nohobbies" name="hobbies" type="checkbox") 
-                button(type="submit" class="btn btn-primary") Submit
+                        
+                        label(for="reading" class="checkbox-inline") Reading books 
+                            input(value="reading" name="hobbies" type="checkbox")
+                        label(for="dancing" class="checkbox-inline" style="margin-left:5px") Dancing  
+                            input(value="dancing" name="hobbies" type="checkbox" style="margin-left:5px" ) 
+                        label(for="music" class="form-label checkbox-inline" style="margin-left:5px" ) Listening to music
+                            input(value="music" name="hobbies" type="checkbox" style="margin-left:5px" )
+                        label(for="travel" class="form-label checkbox-inline" style="margin-left:5px" ) Travel/Riding
+                            input(value="travel" name="hobbies" type="checkbox" style="margin-left:5px" )
+                        label(for="nohobby" class="form-label checkbox-inline" style="margin-left:5px") I have no hobbies :(
+                            input(value="nohobbies" name="hobbies" type="checkbox" style="margin-left:5px") 
+                div(class="form-group")
+                    button(type="submit" class="btn btn-primary") Submit
+
         script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous")
         script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous")
