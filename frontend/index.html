@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counts the counter</title>
+</head>
+<body>
+    <div id="main">
+        <p>Instruction : Click on the number to reset</p>
+        <h2>First Scenario</h2>
+        <counter :count="count" v-on:increase="increase" v-on:decrease="decrease" v-on:reset="reset"></counter>
+        <counter :count="count" v-on:increase="increase" v-on:decrease="decrease" v-on:reset="reset"></counter>
+        <h2>Second scenario</h2>
+        <indi-counter></indi-counter>
+        <indi-counter></indi-counter>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    <script>
+
+        Vue.component('counter', {
+            props : ['count'], 
+           
+            template: `<div>
+               
+                <ul style="list-style-type:none;">
+                        <li><button v-on:click="$emit('increase')">Increase</button>
+                        <button v-on:click="$emit('reset')">{{count}}</button>
+                        <button v-on:click="$emit('decrease')">Decrease</button></li>
+                </ul>
+                </div>`
+        })
+
+        Vue.component('indi-counter', {
+            data : function(){
+                return {
+                    count : 0
+                }
+                 
+            },
+            methods : {
+                increase(){
+                    this.count += 1 
+                }, 
+                decrease(){
+                    this.count -= 1 
+                }, 
+                reset(){
+                    this.count = 0 
+                }
+            },
+           
+            template: `<div>
+           
+                <ul style="list-style-type:none;">
+                        <li><button v-on:click="increase">Increase</button>
+                        <button v-on:click="reset">{{count}}</button>
+                        <button v-on:click="decrease">Decrease</button></li>
+                </ul>
+                </div>`
+        })
+
+        var app = new Vue({
+            el: "#main", 
+            data : {
+                count:0
+            }, 
+            methods : {
+                increase(){
+                    this.count += 1 
+                }, 
+                decrease(){
+                    this.count -= 1 
+                }, 
+                reset(){
+                    this.count = 0 
+                }
+            }
+        })
+    </script>
+</body>
+</html>
